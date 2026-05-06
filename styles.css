@@ -1,0 +1,939 @@
+/* ==================== Global Styles ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+.bakery-font {
+  font-family: "Lato", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bakery-font-thin {
+  font-family: "Lato", system-ui;
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* ==================== Main ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #09BCB1;
+    --secondary-color: #C4577F;
+    --accent-color: #D1F2EB;
+    --neutral-color: #E0E4E3;
+    --tertiary-color: #FCE861;
+    --text-color: #394B48;
+    --text-color-light: #09BCB1;
+    --text-color-accent: var(--tertiary-color);
+    --nav-menuitem-hover: var(--text-color);
+    --svg-bg: var(--primary-color);
+    --hero-text-color: var(--text-color); /* dark text color */
+    --hero-subtext-color: var(--text-color); /* dark text color */
+    --gallery-text-color:var(--hero-text-color);
+    --gallery-button-text-color: var(--text-color);
+    --gallery-button-outline-color: var(--accent-color);
+    --gallery-button-active-outline-color: var(--accent-color);
+    --gallery-button-hover-text-color: var(--accent-color);
+    --gallery-card-background: var(--accent-color);
+    --gallery-card-text: var(--text-color);
+    --contact-text: var(--text-color);
+    --form-submit-button-bg: var(--primary-color);
+    --form-submit-button-text: var(--neutral-color);
+    --form-submit-button-hover-bg: var(--secondary-color);
+    --light-bg: #D1F2EB;
+    --light: #F5EED8;
+    --white: #ffffff;
+    --black: #000000;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --text-font: 'Lato';
+    --card-text: 'Lato';
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.6;
+    color: var(--neutral-color);
+    background: linear-gradient(180deg, rgb(115 60 20 / 28%) 75%, #e9c766bf 100%), url(images/bg/cake_bg.avif);
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* ==================== Navigation ==================== */
+.navbar {
+    background: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--neutral-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.nav-menu {
+    font-family: var(--text-font);
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    font-size: 1.3rem
+}
+
+.nav-menu a:hover, .nav-menu a.active:hover {
+    color: var(--nav-menuitem-hover);
+}
+.nav-menu a.active {
+    color: var(--white);
+    border-bottom-color: var(--tertiary-color);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--neutral-color);
+    transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background:  var(--primary-color);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        transform: translateY(-10%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-lg);
+        z-index: 1;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-menu li {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    .nav-menu a {
+        padding: 1rem;
+        display: block;
+    }
+}
+
+/* ==================== Hero Section ==================== */
+.hero {
+    background: linear-gradient(180deg, rgb(141 140 137 / 58%) 25%, #3d291ce0 100%), url(images/cakes/sophisticaked/BMD\ rose\ cake.jpg) center / cover no-repeat;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--hero-text-color);
+}
+
+.hero-content p {
+    color: var(--white);
+    font-family: var(--text-font);
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.cta-button:hover {
+    background: var(--accent-color);
+    color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    font-weight: bold;
+}
+
+/*        sheen effect      */
+/*This is the base aniamtion*/
+.sheen:after{
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -67%;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+/*This activates the sheen once the button has been hovered*/
+.sheen:hover::after, button:focus::after {
+  animation: sheen 1s forwards;
+}
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+
+svg {
+  transform: rotate(0deg);
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+svg text {
+  text-anchor: middle;
+  fill: var(--svg-bg);
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+  offset: 50%;
+  text-shadow: -1px 2px 0 var(--text-color), 1px -1px 0 var(--text-color), -1px 1px 0 var(--accent-color), 1px 1px 0 var(--text-color);
+}
+
+/* ==================== About Section ==================== */
+.about {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.about h2,
+.featured h2,
+.gallery-page h1,
+.contact-page h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--gallery-text-color);
+    font-family: var(--text-font);
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    /* background: var(--white); */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card > * {
+    background: none;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.about-card h3 {
+    background: none;
+    font-family: var(--text-font);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.about-card-text {
+    padding: 2rem;
+    color: var(--text-color);
+    font-family: var(--text-font);
+}
+
+.about-card-text > * {
+    background: none;
+}
+
+.about-card > img {
+    width: 100%;
+    height: 280px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+/* ==================== Featured Section ==================== */
+.featured {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.featured-video {
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.featured h4 {
+    color: var(--primary-color);
+    font-size: 2rem; 
+    text-align: center;
+    font-weight: bold;
+}
+
+.featured h2 {
+    color: var(--hero-text-color);
+}
+.featured p {
+    color: var(--hero-subtext-color); 
+    font-family: var(--text-font);
+    text-align: center;  
+    font-weight: bold;  
+}
+
+/* ==================== Additional Info (Delivery) Section ==================== */
+.delivery {
+    background: #030213;
+    color: white;
+    font-family: var(--text-font);
+    padding: 5rem 0;
+}
+
+.delivery-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    justify-content: center;
+}
+
+.delivery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* ==================== Gallery Page ==================== */
+.gallery-page {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.gallery-subtitle {
+    text-align: center;
+    color: var(--gallery-text-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* ==================== Gallery Tabs ==================== */
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    font-family: var(--text-font);
+    background: var(--primary-color);
+    color: var(--gallery-button-text-color);
+    border: 2px solid var(--gallery-button-outline-color);
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: var(--primary-color);
+    color: var(--gallery-button-hover-text-color);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: var(--shadow);
+    border: 2px solid var(--gallery-button-active-outline-color);
+}
+
+/* ==================== Gallery Content ==================== */
+.gallery-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.gallery-content.active {
+    display: block;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 60px;
+}
+
+.gallery-item {
+    background: var(--gallery-card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item h3 {
+    padding: 1rem;
+    text-align: center;
+    color: var(--gallery-card-text);
+}
+
+/* ==================== Modal (Image Expansion) ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 10px;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+#modalCaption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--neutral-color);
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--neutral-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* ==================== Contact Page ==================== */
+.contact-page {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: var(--contact-text);
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 60px;
+}
+
+.contact-info h2,
+.contact-form-container h2 {
+    color: var(--contact-text);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.info-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--contact-text);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item h3 {
+    color: var(--contact-text);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.info-item p {
+    color: var(--contact-text);
+    line-height: 1.8;
+}
+
+/* ==================== Contact Form ==================== */
+.contact-form {
+    background: var(--neutral-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--contact-text);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--neutral-color);
+    border-bottom: 1px solid var(--text-color);
+    border-radius: 5px 5px 0 0;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+#message {
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.submit-btn {
+    background: var(--form-submit-button-bg);
+    color: var(--form-submit-button-text);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: var(--form-submit-button-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+    background: var(--primary-color);
+    color: var(--neutral-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+    color: white;
+    
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        font-family: var(--text-font);
+        gap: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .about h2,
+    .featured h2,
+    .gallery-page h1,
+    .contact-page h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .modal img {
+        max-width: 95%;
+        max-height: 90%;
+    }
+
+    #modalCaption {
+        font-size: 1rem;
+        bottom: 15px;
+    }
+
+    .close-btn {
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .nav-container #myLinks {
+    display: none;
+    }
+
+    /* Style the hamburger menu */
+    .nav-container a.icon {
+    background: none;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .nav-container a:hover {
+    background-color: var(--tertiary-color);
+    color: black;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        font-family: var(--text-font);
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        min-height: 300px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content,
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .nav-container #myLinks {
+    display: none;
+    }
+
+    /* Style the hamburger menu */
+    .nav-container a.icon {
+    background: none;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    .nav-container a:hover {
+    background-color: var(--tertiary-color);
+    color: black;
+    }
+}
+
+
+/* ==================== Angled Background Design ==================== */
+/*https://codepen.io/miriamsuzanne/pen/BEvjbm*/
+
+/* Generate a default background based on any hue */
+body {
+  /* --bg-hue: 270; */
+}
+
+/* Override the default settings to customize your result */
+div .about-card {
+  --bg-hue: 160;
+  --bg-tint-angle: to bottom left;
+  --bg-tint-start: 70%;
+  --bg-shade-angle: 80deg;
+}
+
+/* Create defaults that can be re-used via html */
+[data-bg~='oddbird'] {
+  --bg-color: hsl(195, 52%, 31%);
+  --bg-tint: hsla(24, 100%, 62%, 0.75);
+  --bg-shade: hsla(330, 100%, 45%, 0.75);
+}
+
+
+/* We could also provide preset values to choose from */
+[style*='--bg-'] {
+  --mia-hue: 330;
+  --mia-color: hsl(330, 100%, 29%);
+}
+
+
+/* 
+The mixin logic
+---------------
+- I've exposed more variables than you would need to.
+  Each additional variable provides another "argument" to the API.
+  For patterns that require less customization, use fewer variables.
+- Defining it on the * selector makes this globally available,
+  but it could also be scoped to any selector you want.
+  Scoping functions/mixins to the DOM is a feature that only CSS can provide.
+*/
+* {
+  /* Setting a valid hue (any unitless number) will auto-set all the other values */
+  --bg-hue: unset;
+  
+  /* Adjust the base saturation and lightness as desired */
+  --bg-saturation: 50%;
+  --bg-lightness: 40%;
+  
+  /* set angles for the tint and shade gradients */
+  --bg-tint-angle: -20deg;
+  --bg-shade-angle: -110deg;
+
+  /* set amounts for default tint & shade */
+  --bg-tint-amount: 20%;
+  --bg-shade-amount: 20%;
+  
+  /* set indiviidual hues for the tint and shade */
+  /* defaults are set by higher-level arguments…
+     which alows for both simpler & more customized uses*/
+  --bg-tint-hue: var(--bg-hue);
+  --bg-shade-hue: var(--bg-hue);
+  
+  /* set the gradient positions all at once */
+  --bg-gradient-stops: 30%;
+  
+  /* override tint/shade gradients directly */
+  --bg-tint-start: var(--bg-gradient-stops);
+  --bg-tint-end: var(--bg-tint-start);
+  --bg-shade-start: var(--bg-gradient-stops);
+  --bg-shade-end: var(--bg-shade-start);
+
+  /* override tint/shade saturation & lightness directly */
+  --bg-tint-saturation: var(--bg-saturation);
+  --bg-tint-lightness: calc(var(--bg-lightness) + var(--bg-tint-amount));
+  --bg-shade-saturation: var(--bg-saturation);
+  --bg-shade-lightness: calc(var(--bg-lightness) - var(--bg-shade-amount));
+
+  /* or override any individual color directly */
+  --bg-color: hsl(var(--bg-hue), var(--bg-saturation), var(--bg-lightness));
+  --bg-tint: hsla(var(--bg-tint-hue), var(--bg-tint-saturation), var(--bg-tint-lightness), 0.25);
+  --bg-shade: hsla(var(--bg-shade-hue), var(--bg-shade-saturation), var(--bg-shade-lightness), 0.25);
+
+  
+  /* this is the internal logic that creates your angled tint/shade background */
+  --bg-image: 
+    linear-gradient(
+      var(--bg-tint-angle),
+      var(--bg-tint) var(--bg-tint-start),
+      transparent var(--bg-tint-end)
+    ),
+    linear-gradient(
+      var(--bg-shade-angle),
+      var(--bg-shade) var(--bg-shade-start),
+      transparent var(--bg-shade-end)
+    )
+  ;
+  
+  /* Creating a final "output" variable acts like a function return */
+  --bg: var(--bg-image) var(--bg-color);
+  
+  /* Applying that value to a property creates a mixin */
+  /* Since the initial return is invalid, nothing happens unless we set a --bg-hue */
+  background: var(--bg);
+}
+
+@media (min-width: 769px) {
+    #hamburger-dropdown{
+        display: none;
+    }
+}
